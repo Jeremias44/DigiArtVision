@@ -9,7 +9,7 @@ from streamlit_drawable_canvas import st_canvas
 
 # Intenta cargar el DataFrame desde el archivo CSV si existe
 try:
-    data = pd.read_csv('Streamlit/data')
+    data = pd.read_csv('data')
     # El archivo CSV existía, puedes trabajar con 'data' aquí.
 except FileNotFoundError:
     # El archivo CSV no existe, crea un nuevo DataFrame
@@ -109,7 +109,7 @@ if st.checkbox('Iniciar Predicciones'):
         st.write('Si hacés click en la papelera podés hacer un nuevo dibujo y seguir entrenando al modelo 😃')
         data = data.drop_duplicates(subset=["Vectores"])
         # Guarda el DataFrame actualizado en un archivo CSV
-        data.to_csv('Streamlit/data', index=False)
+        data.to_csv('data', index=False)
         data2 = None
 
 

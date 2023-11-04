@@ -21,6 +21,9 @@ st.write("## Para comenzar dibujá en el lienzo un número del 0 al 9")
 
 drawing = False
 
+# Carga el modelo desde el archivo .h5
+loaded_model = load_model("retrained_model.h5")
+
 # Crear una barra lateral para opciones
 drawing_mode = "freedraw"
 background_color="black"
@@ -35,8 +38,7 @@ st.sidebar.markdown('model.h5 es un modelo preentrenado con un dataset muy usado
 st.sidebar.markdown('mix_model.h5 utiliza los datos provenientes de ambas fuentes')
 loaded_model = st.sidebar.selectbox("Modelo", ("retrained_model.h5","model.h5","mix_model.h5"), index=0)
 
-# Carga el modelo desde el archivo .h5
-loaded_model = load_model(loaded_model)
+
 
 
 # Crea un lienzo en blanco

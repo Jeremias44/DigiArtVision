@@ -9,7 +9,7 @@ from streamlit_drawable_canvas import st_canvas
 
 # Intenta cargar el DataFrame desde el archivo CSV si existe
 try:
-    data = pd.read_csv('data')
+    data = pd.read_csv('Streamlit/data')
     # El archivo CSV existía, puedes trabajar con 'data' aquí.
 except FileNotFoundError:
     # El archivo CSV no existe, crea un nuevo DataFrame
@@ -36,7 +36,7 @@ st.sidebar.title("Modelo a Utilizar")
 st.sidebar.markdown('retrained_model.h5 es un modelo entrenado únicamente con los dibujos realizados por los usuarios de esta app')
 st.sidebar.markdown('model.h5 es un modelo preentrenado con un dataset muy usado llamado MNIST')
 st.sidebar.markdown('mix_model.h5 utiliza los datos provenientes de ambas fuentes')
-#loaded_model = st.sidebar.selectbox("Modelo", ("retrained_model.h5","model.h5","mix_model.h5"), index=0)
+loaded_model = st.sidebar.selectbox("Modelo", ("Streamlit/retrained_model.h5","Streamlit/model.h5","Streamlit/mix_model.h5"), index=0)
 
 
 
@@ -53,7 +53,7 @@ canvas = st_canvas(
     key="canvas",
 )
 
-if st.checkbox('Iniciar'):
+if st.checkbox('Iniciar Predicciones'):
     # Obtén la imagen dibujada en el lienzo
     image = Image.fromarray(canvas.image_data.astype('uint8'))
     #image = canvas.image_data.astype(np.uint8)
@@ -109,7 +109,7 @@ if st.checkbox('Iniciar'):
         st.write('Si hacés click en la papelera podés hacer un nuevo dibujo y seguir entrenando al modelo 😃')
         data = data.drop_duplicates(subset=["Vectores"])
         # Guarda el DataFrame actualizado en un archivo CSV
-        data.to_csv('data', index=False)
+        data.to_csv('Streamlit/data', index=False)
         data2 = None
 
 

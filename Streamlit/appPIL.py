@@ -37,6 +37,11 @@ st.sidebar.markdown('model.h5 es un modelo preentrenado con un dataset muy usado
 st.sidebar.markdown('mix_model.h5 utiliza los datos provenientes de ambas fuentes')
 model = st.sidebar.selectbox("Modelo", ("Streamlit/retrained_model.h5","Streamlit/model.h5","Streamlit/mix_model.h5"), index=0)
 
+st.sidebar.markdown("### Contacta con el autor del sitio")
+st.sidebar.markdown("[Jeremías Pombo en LinkedIn](https://www.linkedin.com/in/jeremiaspombo/)")
+st.sidebar.markdown("### Visita el repositorio del proyecto")
+st.sidebar.markdown("[Repositorio de GitHub](https://github.com/Jeremias44/digiartvisionsql)")
+
 # Carga el modelo desde el archivo .h5
 loaded_model = load_model(model)
 
